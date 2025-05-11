@@ -7,3 +7,4 @@ uuid = "1"
 base128 = { git = "https://github.com/lifr0m/base128.git" }
 teloxide = { version = "0.15", default-features = false }
 futures = "0.3"
+rust_decimal = "1"
