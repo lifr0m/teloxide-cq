@@ -1,4 +1,3 @@
-use rust_decimal::prelude::FromPrimitive;
 use rust_decimal::Decimal;
 use std::io::Read;
 use uuid::Uuid;
@@ -33,8 +32,8 @@ impl Deserialize for Uuid {
 
 impl Deserialize for Decimal {
     fn deserialize(src: &mut &[u8]) -> std::io::Result<Self> {
-        let mut buf = [0; 8];
+        let mut buf = [0; 16];
         src.read_exact(&mut buf)?;
-        Ok(Self::from_f64(f64::from_le_bytes(buf)).unwrap())
+        Ok(Self::deserialize(buf))
     }
 }

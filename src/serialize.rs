@@ -1,4 +1,3 @@
-use rust_decimal::prelude::ToPrimitive;
 use rust_decimal::Decimal;
 use uuid::Uuid;
 
@@ -26,6 +25,6 @@ impl Serialize for Uuid {
 
 impl Serialize for Decimal {
     fn serialize(&self, buf: &mut Vec<u8>) {
-        buf.extend(self.to_f64().unwrap().to_le_bytes());
+        buf.extend(self.serialize());
     }
 }
