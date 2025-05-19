@@ -47,3 +47,9 @@ impl Serialize for str {
         self.as_bytes().serialize(buf);
     }
 }
+
+impl Serialize for String {
+    fn serialize(&self, buf: &mut Vec<u8>) {
+        self.as_str().serialize(buf);
+    }
+}
