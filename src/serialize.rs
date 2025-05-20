@@ -37,7 +37,7 @@ impl Serialize for Decimal {
 
 impl<T: Serialize> Serialize for [T] {
     fn serialize(&self, buf: &mut Vec<u8>) {
-        (buf.len() as u8).serialize(buf);
+        (self.len() as u8).serialize(buf);
         self.iter().for_each(|e| e.serialize(buf));
     }
 }
